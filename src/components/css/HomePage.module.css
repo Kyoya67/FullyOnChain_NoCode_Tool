@@ -1,0 +1,33 @@
+/* HomePage.module.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color: #007bff; /* BootstrapのPrimaryカラー */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+  
+  .button:hover {
+    background-color: #0056b3; /* ホバー時の色を暗く */
+  }
