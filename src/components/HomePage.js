@@ -1,25 +1,34 @@
-// src/components/HomePage.js
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // useNavigateをインポート
-import styles from './css/HomePage.module.css'; // 適切なパスに修正してください。
+import { useNavigate } from 'react-router-dom';
+import styles from './HomePage.module.css';
 
 const HomePage = () => {
   const navigate = useNavigate();
 
-  // CollectionListページに移動する関数
   const goToCollectionList = () => {
-    navigate('/collections'); // '/collections'はCollectionListが表示されるパスに合わせてください
+    navigate('/collections');
+  };
+
+  const goToReadyMadeNFT = () => {
+    navigate('/worklist');
   };
 
   return (
-    <div className={styles.container} style={{background: "#C4FFF9"}}>
-      <h1>Welcome to the NFT Collection Factory</h1>
-      <p>Create and manage your own NFT collections fully on-chain.</p>
-      <button onClick={goToCollectionList} className={styles.button}>
-        Create Original NFT
-      </button>
-      {/* その他のコンテンツ */}
-    </div>
+    <>
+      <div className={styles.content}>
+        <h1>The No-Code Fully On Chain <br/>NFT Platform</h1>
+        <p>You can choose to make an original NFT or a ready-made NFT</p>
+      </div>
+      <div className={styles.buttonsContainer}>
+        <button onClick={goToCollectionList} className={styles.original_button}>
+          Create Original NFT
+        </button>
+
+        <button onClick={goToReadyMadeNFT} className={styles.readyMade_button}>
+          Create ReadyMade NFT
+        </button>
+      </div>
+    </>
   );
 };
 

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
-import { useWallet } from '../contexts/WalletContext'; // WalletContextからuseWalletをインポート
+import { useWallet } from '../../contexts/WalletContext'; // WalletContextからuseWalletをインポート
 import factoryAbi from './abi/factory.json';
-import styles from './css/SvgFactory.module.css';
+import styles from './css/Factory.module.css';
 
 // ファクトリー・コントラクトのABIとアドレスを設定します。
 // ABIはコントラクトのコンパイル時に生成されたものを使用してください。
 const factoryAddress = '0x3E1C92a4FD855c375413672a1d71a1278e759888'; // ファクトリー・コントラクトのアドレスをここに置きます。
 
-const FullyOnChainFactory = () => {
+const Factory = () => {
     const { userAddress, connectWallet } = useWallet(); // グローバルウォレット状態を取得
     const [name, setName] = useState('');
     const [symbol, setSymbol] = useState('');
@@ -98,6 +98,6 @@ const FullyOnChainFactory = () => {
     );
 };
 
-export default FullyOnChainFactory;
+export default Factory;
 
 

@@ -1,0 +1,21 @@
+/* WorkList.css */
+.workListContainer {
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.workListImage {
+    margin-bottom: 10px;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.workListTitle {
+    margin: 40px;
+    color: #fff;
+    text-align: center;
+    font-size: 50px;
+}

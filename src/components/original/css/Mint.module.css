@@ -1,15 +1,30 @@
-.appBackground {
-  background-color: #e0fffd; /* 例として薄いグレーの背景色を設定 */
-  /* 必要に応じて他のスタイルを追加 */
+.info {
+  color: #fff;
+  text-align: center;
 }
 
-.container {
+.layoutContainer {
+  margin-top: 100px;
+  margin-bottom: 300px;
+  margin: auto;
+  width: 1500px;
+  display: flex;
+  flex-direction: row;
+  aspect-ratio: 2 / 1;
+}
+
+.livePreviewContainer, .aceEditorContainer {
+  background-color: #fff;
+  width: 50%;
+  height: 100%; /* This will make the children fill up the height of the .layoutContainer */
+}
+
+.container {  
+    margin-top: 1000px;
     max-width: 480px;
-    background-color: #ffffff;
+    background-color: #f7f7f7;
     margin: auto;
     padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
     display: flex;
     flex-direction: column;
     gap: 1rem;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useWallet } from '../contexts/WalletContext';
+import { useWallet } from '../../contexts/WalletContext';
 import { ethers } from 'ethers';
 import factoryAbi from './abi/factory.json';
 import mintAbi from './abi/mint.json';
@@ -10,30 +10,25 @@ const factoryAddress = '0x3E1C92a4FD855c375413672a1d71a1278e759888';
 
 const CollectionList = () => {
   const { userAddress, connectWallet } = useWallet();
-  const navigate = useNavigate();
   const [collections, setCollections] = useState([]);
+  const navigate = useNavigate();
 
   const addNewCollection = () => {
     navigate('/new-collection');
   };
 
-  // const handleCollectionClick = (address) => {
-  //   navigate(`/mint/${address}`);
-  // };
-
   const handleCollectionClick = (collection) => {
-    // console.log('Collection clicked:', collection);
-    // console.log('Navigating with state:', { fileType: collection.fileType });
-    navigate(`/mint/${collection.address}`, { state: { fileType: collection.fileType } });
+    navigate(`/mint/${collection.address}`, { state: { name: collection.name, fileType: collection.fileType } });
   };
 
   const getCreatedContracts = async () => {
     if (userAddress) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
+      console.log(provider);
       const factoryContract = new ethers.Contract(factoryAddress, factoryAbi, provider);
       try {
         const filter = factoryContract.filters.NFTContractCreated(userAddress);
-        const events = await factoryContract.queryFilter(filter);
+        const events = await factoryContract.queryFilter(filter, 4831470);
         const contractDetails = await Promise.all(events.map(async (event) => {
           const contract = new ethers.Contract(event.args.contractAddress, mintAbi, provider);
           const name = await contract.name();
@@ -66,13 +61,8 @@ const CollectionList = () => {
     <div className={styles.container}>
       <h1 className={styles.title}>My Collections</h1>
       <button onClick={addNewCollection} className={styles.addButton}>
-        + New Collection
+        Create Collection
       </button>
-      {!userAddress && (
-        <button onClick={connectWallet} className={styles.connectButton}>
-          Connect to MetaMask
-        </button>
-      )}
       <ul className={styles.list}>
         {collections.map((collection, index) => (
           <li key={index} className={styles.item} onClick={() => handleCollectionClick(collection)}>

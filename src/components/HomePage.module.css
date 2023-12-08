@@ -1,0 +1,58 @@
+/* HomePage.module.css */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 60px;
+  }
+  
+  h1 {
+    margin-bottom: 50px;
+  }
+  
+  p {
+    margin-bottom: 50px;
+    font-size: 2.0rem;
+  }
+  
+  .buttonsContainer {
+    display: flex;
+    justify-content: center; /* 横方向の中央揃え */
+    align-items: center; /* 縦方向の中央揃え */
+    height: 10vh; /* 親コンテナの高さをビューポートの100%にする */
+    padding: 20px; /* パディングで余白を作る */
+  }
+
+  .original_button {
+    padding: 30px 40px; /* パディングを増やしてボタンを大きくする */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5rem; /* フォントサイズを大きくする */
+    margin-right: 120px;
+  }
+  
+  .readyMade_button {
+    padding: 30px 40px; /* パディングを減らしてボタンを小さくする */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5rem; /* フォントサイズを小さくする */
+  }
+  
+  
+  .original_button:hover {
+    background-color: #0056b3; /* ホバー時の色を暗く */
+  }
+
+  .readyMade_button:hover {
+    background-color: #0056b3; /* ホバー時の色を暗く */
+  }
